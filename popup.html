@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    
+    <div id="login-screen">
+      <div class="login-header">
+        <h1>Welcome </h1>
+        <p>Please login to continue</p>
+      </div>
+      <div class="login-form-container">
+
+        <div id="login-form">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user input-icon"></i>
+              <input type="text" id="username" placeholder="Enter your username">
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input type="password" id="password" placeholder="••••••••">
+            </div>
+          </div>
+          
+          <button id="login-btn" class="primary-button">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          
+          <div class="login-options">
+            <label class="remember-me">
+              <input type="checkbox" id="remember-me">
+              <span>Remember me</span>
+            </label>
+          </div>
+          
+          <p id="login-error" class="error-message hidden"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Screen -->
+    <div id="task-screen" class="hidden">
+      <div class="task-header">
+        <div class="header-content">
+
+          <h1>Task Tracker</h1>
+          <button id="logout-btn" class="logout-button" title="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+        <p>Welcome, <span id="username-display"></span></p>
+      </div>
+      <div class="task-container">
+        <div id="task-form" class="task-input-group">
+          <input type="text" id="task-input" placeholder="Search or add task">
+          <button id="search-add-btn" class="add-button" disabled>
+            <i id="search-add-icon" class="fas fa-search"></i>
+            <span id="search-add-text"></span>
+          </button>
+        </div>  
+        <div class="task-list-container">
+          <div class="task-controls">
+            <span id="task-count" class="task-counter">0 tasks</span>
+          </div>
+       <div class="timer-container hidden" id="timer-container">
+              <span id="timer-display"></span>
+                    </div>
+          
+          <ul id="task-list" class="task-items"></ul>
+          
+          <div id="empty-state" class="empty-state">
+          
+            <i class="fas fa-tasks empty-icon"></i>
+            <p>No tasks yet. Add one above!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div id="task-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Add Task Details</h2>
+   <label>
+  Priority: <span style="color:red">*</span>
+  <select id="task-priority" required>
+    <option value="">-- Select Priority --</option>
+    <option value="Low">Low</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="High">High</option>
+  </select>
+</label>
+
+<label>
+  Status: <span style="color:red">*</span>
+  <select id="task-status" required>
+    <option value="">-- Select Status --</option>
+    <option value="to do" selected>TO DO</option>
+    <option value="on hold">ON HOLD</option>
+    <option value="inprogress">IN PROGRESS</option>
+    <option value="completed">DONE</option>
+  </select>
+</label>
+
+<label>
+  End Date: <span style="color:red">*</span>
+  <input type="date" id="task-end-date" required>
+</label>
+
+<label>
+  Note: <span style="color:red">*</span>
+  <textarea id="task-note" placeholder="Add any notes..." required></textarea>
+</label>
+
+<label>
+  Client: <span style="color:red">*</span>
+  <select id="task-client" required>
+    <option value="">-- Select Client --</option>
+  </select>
+</label>
+
+<label>
+  Project: <span style="color:red">*</span>
+  <select id="task-project" required>
+    <option value="">-- Select Project --</option>
+  </select>
+</label>
+
+    
+    <button id="save-task-btn">Save Task</button>
+    <button id="close-modal-btn">Cancel</button>
+  </div>
+</div>
+
+    
+  <script src="task.js"></script>
+
+</body>
+</html>
